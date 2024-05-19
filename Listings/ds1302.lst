@@ -1,0 +1,138 @@
+C51 COMPILER V9.60.7.0   DS1302                                                            05/19/2024 12:22:10 PAGE 1   
+
+
+C51 COMPILER V9.60.7.0, COMPILATION OF MODULE DS1302
+OBJECT MODULE PLACED IN .\Objects\ds1302.obj
+COMPILER INVOKED BY: C:\Keil_v5\C51\BIN\C51.EXE ds1302.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\ds
+                    -1302.lst) TABS(2) OBJECT(.\Objects\ds1302.obj)
+
+line level    source
+
+   1          #include"ds1302.h"
+   2          
+   3          //--- DS1302 write and read address commands for hours, minutes, and seconds --//
+   4          //---Seconds minutes hours days months anniversaries Lowest read/write bit;-------//
+   5          uchar code READ_RTC_ADDR[7] = {0x81, 0x83, 0x85, 0x87, 0x89, 0x8b, 0x8d};
+   6          uchar code WRITE_RTC_ADDR[7] = {0x80, 0x82, 0x84, 0x86, 0x88, 0x8a, 0x8c};
+   7          
+   8          
+   9          // For DoW (Days of the Week): Mon = 1, Tue = 2, Wed = 3, Thu = 4, Fri = 5, Sat = 6, Sun = 7 //
+  10          // Order is SECONDS, MINUTES, HOURS,  DAY, MONTH,  DoW, YEAR //
+  11          uchar TIME[7] = { 0,    0x00,  0x07, 0x20,  0x05, 0x01, 0x24};
+  12          
+  13          void Ds1302Write(uchar addr, uchar dat)
+  14          {
+  15   1        uchar n;
+  16   1        RST = 0;
+  17   1        _nop_();
+  18   1      
+  19   1        SCLK = 0;// First set SCLK low.
+  20   1        _nop_();
+  21   1        RST = 1; // Then set RST(CE) high.
+  22   1        _nop_();
+  23   1      
+  24   1        for (n=0; n<8; n++)// Start transmitting the eight-bit address command
+  25   1        {
+  26   2          DSIO = addr & 0x01;// Data start transmitting from low bit
+  27   2          addr >>= 1;
+  28   2          SCLK = 1;// DS1302 reads data when data is on the rising edge
+  29   2          _nop_();
+  30   2          SCLK = 0;
+  31   2          _nop_();
+  32   2        }
+  33   1        for (n=0; n<8; n++)// Write 8-bit data
+  34   1        {
+  35   2          DSIO = dat & 0x01;
+  36   2          dat >>= 1;
+  37   2          SCLK = 1;// DS1302 reads data when data is on the rising edge
+  38   2          _nop_();
+  39   2          SCLK = 0;
+  40   2          _nop_();
+  41   2        }
+  42   1      
+  43   1        RST = 0;// End of data transfer
+  44   1        _nop_();
+  45   1      }
+  46          
+  47          uchar Ds1302Read(uchar addr)
+  48          {
+  49   1        uchar n,dat,dat1;
+  50   1        RST = 0;
+  51   1        _nop_();
+  52   1      
+  53   1        SCLK = 0;// Put SCLK low first.
+  54   1        _nop_();
+C51 COMPILER V9.60.7.0   DS1302                                                            05/19/2024 12:22:10 PAGE 2   
+
+  55   1        RST = 1;// Then set RST(CE) high.
+  56   1        _nop_();
+  57   1      
+  58   1        for(n=0; n<8; n++)// Start transmitting the eight-bit address command
+  59   1        {
+  60   2          DSIO = addr & 0x01;// Data start transmitting from low bit
+  61   2          addr >>= 1;
+  62   2          SCLK = 1;// DS1302 reads data when data is on the rising edge
+  63   2          _nop_();
+  64   2          SCLK = 0;// Data on falling edge, DS1302 places data
+  65   2          _nop_();
+  66   2        }
+  67   1        _nop_();
+  68   1        for(n=0; n<8; n++)// Read 8-bit data
+  69   1        {
+  70   2          dat1 = DSIO;// Start receiving from the lowest bit
+  71   2          dat = (dat>>1) | (dat1<<7);
+  72   2          SCLK = 1;
+  73   2          _nop_();
+  74   2          SCLK = 0;// DS1302 places data on falling edge
+  75   2          _nop_();
+  76   2        }
+  77   1      
+  78   1        RST = 0;
+  79   1        _nop_();  // The following is the stabilization time for DS1302 reset, required.
+  80   1        SCLK = 1;
+  81   1        _nop_();
+  82   1        DSIO = 0;
+  83   1        _nop_();
+  84   1        DSIO = 1;
+  85   1        _nop_();
+  86   1        return dat;
+  87   1      }
+  88          
+  89          void Ds1302Init()
+  90          {
+  91   1        uchar n;
+  92   1        Ds1302Write(0x8E,0X00);    // Disable write protection, that is, turn off the write protection function
+  93   1        for (n=0; n<7; n++)// Write 7 bytes of clock signals: minutes seconds hours days months year
+  94   1        {
+  95   2          Ds1302Write(WRITE_RTC_ADDR[n],TIME[n]);
+  96   2        }
+  97   1        Ds1302Write(0x8E,0x80);    // Turn on write-protect function
+  98   1      }
+  99          
+ 100          void Ds1302ReadTime()
+ 101          {
+ 102   1        uchar n;
+ 103   1        for (n=0; n<7; n++)// Read 7 bytes of clock signal: minute second hour day month year
+ 104   1        {
+ 105   2          TIME[n] = Ds1302Read(READ_RTC_ADDR[n]);
+ 106   2        }
+ 107   1      
+ 108   1      }
+ 109          
+ 110          
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    184    ----
+   CONSTANT SIZE    =     14    ----
+   XDATA SIZE       =   ----    ----
+C51 COMPILER V9.60.7.0   DS1302                                                            05/19/2024 12:22:10 PAGE 3   
+
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      7    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
