@@ -1,4 +1,4 @@
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/19/2024  13:00:05  PAGE 1
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                    05/19/2024  13:29:51  PAGE 1
 
 
 BL51 BANKED LINKER/LOCATER V6.22.4.0, INVOKED BY:
@@ -39,18 +39,18 @@ LINK MAP OF MODULE:  .\Objects\AlarmClock (DS1302)
             CODE    0AE7H     008CH     UNIT         ?C_C51STARTUP
             CODE    0B73H     004AH     UNIT         ?PR?_DS1302READ?DS1302
             CODE    0BBDH     0047H     UNIT         ?PR?INT0?MAIN
-            CODE    0C04H     0042H     UNIT         ?PR?_LCD1602_DELAY1MS?LCD
-            CODE    0C46H     0035H     UNIT         ?PR?_DS1302WRITE?DS1302
-            CODE    0C7BH     0023H     UNIT         ?PR?DS1302INIT?DS1302
-            CODE    0C9EH     001EH     UNIT         ?PR?LCDINIT?LCD
-            CODE    0CBCH     001CH     UNIT         ?C_INITSEG
-            CODE    0CD8H     0016H     UNIT         ?PR?DS1302READTIME?DS1302
-            CODE    0CEEH     000EH     UNIT         ?CO?DS1302
-            CODE    0CFCH     000DH     UNIT         ?PR?DELAY10MS?MAIN
-            CODE    0D09H     000CH     UNIT         ?PR?_LCDWRITECOM?LCD
-            CODE    0D15H     000CH     UNIT         ?PR?_LCDWRITEDATA?LCD
-            CODE    0D21H     000BH     UNIT         ?PR?_DELAY?MAIN
-            CODE    0D2CH     0007H     UNIT         ?PR?INT0CONFIGURATION?MAIN
+            CODE    0C04H     0035H     UNIT         ?PR?_DS1302WRITE?DS1302
+            CODE    0C39H     002AH     UNIT         ?PR?_LCD1602_DELAY1MS?LCD
+            CODE    0C63H     0023H     UNIT         ?PR?DS1302INIT?DS1302
+            CODE    0C86H     001CH     UNIT         ?C_INITSEG
+            CODE    0CA2H     0019H     UNIT         ?PR?LCDINIT?LCD
+            CODE    0CBBH     0016H     UNIT         ?PR?DS1302READTIME?DS1302
+            CODE    0CD1H     000EH     UNIT         ?CO?DS1302
+            CODE    0CDFH     000DH     UNIT         ?PR?DELAY10MS?MAIN
+            CODE    0CECH     000BH     UNIT         ?PR?_DELAY?MAIN
+            CODE    0CF7H     000AH     UNIT         ?PR?_LCDWRITECOM?LCD
+            CODE    0D01H     000AH     UNIT         ?PR?_LCDWRITEDATA?LCD
+            CODE    0D0BH     0007H     UNIT         ?PR?INT0CONFIGURATION?MAIN
 
 
 
@@ -59,7 +59,7 @@ OVERLAY MAP OF MODULE:   .\Objects\AlarmClock (DS1302)
 
 SEGMENT                              DATA_GROUP 
   +--> CALLED SEGMENT              START    LENGTH
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 2
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 2
 
 
 --------------------------------------------------
@@ -115,17 +115,17 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   -------         MODULE        DS1302
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:00B0H         PUBLIC        P3
-  C:0C46H         PUBLIC        _Ds1302Write
-  C:0CD8H         PUBLIC        Ds1302ReadTime
-  C:0C7BH         PUBLIC        Ds1302Init
+  C:0C04H         PUBLIC        _Ds1302Write
+  C:0CBBH         PUBLIC        Ds1302ReadTime
+  C:0C63H         PUBLIC        Ds1302Init
   B:00B0H.6       PUBLIC        SCLK
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 3
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 3
 
 
   D:0017H         PUBLIC        TIME
   B:00B0H.4       PUBLIC        DSIO
-  C:0CF5H         PUBLIC        WRITE_RTC_ADDR
-  C:0CEEH         PUBLIC        READ_RTC_ADDR
+  C:0CD8H         PUBLIC        WRITE_RTC_ADDR
+  C:0CD1H         PUBLIC        READ_RTC_ADDR
   B:00B0H.5       PUBLIC        RST
   C:0B73H         PUBLIC        _Ds1302Read
   -------         PROC          _DS1302WRITE
@@ -134,35 +134,35 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   -------         DO            
   D:0006H         SYMBOL        n
   -------         ENDDO         
-  C:0C46H         LINE#         13
-  C:0C46H         LINE#         14
-  C:0C46H         LINE#         16
-  C:0C48H         LINE#         17
-  C:0C49H         LINE#         19
-  C:0C4BH         LINE#         20
-  C:0C4CH         LINE#         21
-  C:0C4EH         LINE#         22
-  C:0C4FH         LINE#         24
-  C:0C51H         LINE#         25
-  C:0C51H         LINE#         26
-  C:0C55H         LINE#         27
-  C:0C59H         LINE#         28
-  C:0C5BH         LINE#         29
-  C:0C5CH         LINE#         30
-  C:0C5EH         LINE#         31
-  C:0C5FH         LINE#         32
-  C:0C63H         LINE#         33
-  C:0C65H         LINE#         34
-  C:0C65H         LINE#         35
-  C:0C69H         LINE#         36
-  C:0C6DH         LINE#         37
-  C:0C6FH         LINE#         38
-  C:0C70H         LINE#         39
-  C:0C72H         LINE#         40
-  C:0C73H         LINE#         41
-  C:0C77H         LINE#         43
-  C:0C79H         LINE#         44
-  C:0C7AH         LINE#         45
+  C:0C04H         LINE#         13
+  C:0C04H         LINE#         14
+  C:0C04H         LINE#         16
+  C:0C06H         LINE#         17
+  C:0C07H         LINE#         19
+  C:0C09H         LINE#         20
+  C:0C0AH         LINE#         21
+  C:0C0CH         LINE#         22
+  C:0C0DH         LINE#         24
+  C:0C0FH         LINE#         25
+  C:0C0FH         LINE#         26
+  C:0C13H         LINE#         27
+  C:0C17H         LINE#         28
+  C:0C19H         LINE#         29
+  C:0C1AH         LINE#         30
+  C:0C1CH         LINE#         31
+  C:0C1DH         LINE#         32
+  C:0C21H         LINE#         33
+  C:0C23H         LINE#         34
+  C:0C23H         LINE#         35
+  C:0C27H         LINE#         36
+  C:0C2BH         LINE#         37
+  C:0C2DH         LINE#         38
+  C:0C2EH         LINE#         39
+  C:0C30H         LINE#         40
+  C:0C31H         LINE#         41
+  C:0C35H         LINE#         43
+  C:0C37H         LINE#         44
+  C:0C38H         LINE#         45
   -------         ENDPROC       _DS1302WRITE
   -------         PROC          _DS1302READ
   D:0007H         SYMBOL        addr
@@ -179,7 +179,7 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:0B78H         LINE#         54
   C:0B79H         LINE#         55
   C:0B7BH         LINE#         56
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 4
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 4
 
 
   C:0B7CH         LINE#         58
@@ -216,43 +216,43 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   -------         DO            
   D:0004H         SYMBOL        n
   -------         ENDDO         
-  C:0C7BH         LINE#         89
-  C:0C7BH         LINE#         90
-  C:0C7BH         LINE#         92
-  C:0C82H         LINE#         93
-  C:0C84H         LINE#         94
-  C:0C84H         LINE#         95
-  C:0C93H         LINE#         96
-  C:0C97H         LINE#         97
+  C:0C63H         LINE#         89
+  C:0C63H         LINE#         90
+  C:0C63H         LINE#         92
+  C:0C6AH         LINE#         93
+  C:0C6CH         LINE#         94
+  C:0C6CH         LINE#         95
+  C:0C7BH         LINE#         96
+  C:0C7FH         LINE#         97
   -------         ENDPROC       DS1302INIT
   -------         PROC          DS1302READTIME
   -------         DO            
   D:0003H         SYMBOL        n
   -------         ENDDO         
-  C:0CD8H         LINE#         100
-  C:0CD8H         LINE#         101
-  C:0CD8H         LINE#         103
-  C:0CDAH         LINE#         104
-  C:0CDAH         LINE#         105
-  C:0CE9H         LINE#         106
-  C:0CEDH         LINE#         108
+  C:0CBBH         LINE#         100
+  C:0CBBH         LINE#         101
+  C:0CBBH         LINE#         103
+  C:0CBDH         LINE#         104
+  C:0CBDH         LINE#         105
+  C:0CCCH         LINE#         106
+  C:0CD0H         LINE#         108
   -------         ENDPROC       DS1302READTIME
   -------         ENDMOD        DS1302
 
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 5
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 5
 
 
   -------         MODULE        LCD
   C:0000H         SYMBOL        _ICE_DUMMY_
   D:0080H         PUBLIC        P0
   D:00A0H         PUBLIC        P2
-  C:0D15H         PUBLIC        _LcdWriteData
+  C:0D01H         PUBLIC        _LcdWriteData
   B:00A0H.6       PUBLIC        LCD1602_RS
   B:00A0H.5       PUBLIC        LCD1602_RW
-  C:0C9EH         PUBLIC        LcdInit
+  C:0CA2H         PUBLIC        LcdInit
   B:00A0H.7       PUBLIC        LCD1602_E
-  C:0D09H         PUBLIC        _LcdWriteCom
-  C:0C2DH         PUBLIC        _Lcd1602_Delay1ms
+  C:0CF7H         PUBLIC        _LcdWriteCom
+  C:0C4AH         PUBLIC        _Lcd1602_Delay1ms
   -------         PROC          L?0015
   -------         ENDPROC       L?0015
   -------         PROC          _LCD1602_DELAY1MS
@@ -261,61 +261,50 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   D:0004H         SYMBOL        a
   D:0005H         SYMBOL        b
   -------         ENDDO         
-  C:0C2DH         LINE#         7
-  C:0C2DH         LINE#         9
-  C:0C36H         LINE#         10
-  C:0C38H         LINE#         11
-  C:0C3CH         LINE#         12
-  C:0C3EH         LINE#         13
-  C:0C45H         LINE#         14
+  C:0C4AH         LINE#         3
+  C:0C4AH         LINE#         5
+  C:0C53H         LINE#         6
+  C:0C55H         LINE#         7
+  C:0C59H         LINE#         8
+  C:0C5BH         LINE#         9
+  C:0C62H         LINE#         10
   -------         ENDPROC       _LCD1602_DELAY1MS
   -------         PROC          _LCDWRITECOM
-  D:0003H         SYMBOL        com
-  C:0D09H         LINE#         34
-  C:0D0BH         LINE#         35
-  C:0D0DH         LINE#         36
-  C:0D0FH         LINE#         37
-  C:0D0FH         LINE#         39
-  C:0D0FH         LINE#         40
-  C:0D0FH         LINE#         42
-  C:0D0FH         LINE#         43
-  C:0D0FH         LINE#         44
-  C:0D0FH         LINE#         46
-  C:0D0FH         LINE#         47
-  C:0D0FH         LINE#         49
-  C:0D0FH         LINE#         50
-  C:0D12H         LINE#         51
-  C:0D14H         LINE#         52
+  D:0007H         SYMBOL        com
+  C:0CF7H         LINE#         13
+  C:0CF7H         LINE#         14
+  C:0CF9H         LINE#         15
+  C:0CFBH         LINE#         16
+  C:0CFBH         LINE#         18
+  C:0CFBH         LINE#         19
+  C:0CFBH         LINE#         21
+  C:0CFBH         LINE#         22
+  C:0CFEH         LINE#         23
+  C:0D00H         LINE#         24
   -------         ENDPROC       _LCDWRITECOM
   -------         PROC          _LCDWRITEDATA
-  D:0003H         SYMBOL        dat
-  C:0D15H         LINE#         74
-  C:0D17H         LINE#         77
-  C:0D19H         LINE#         78
-  C:0D1BH         LINE#         79
-  C:0D1BH         LINE#         81
-  C:0D1BH         LINE#         82
-  C:0D1BH         LINE#         84
-  C:0D1BH         LINE#         85
-  C:0D1BH         LINE#         86
-  C:0D1BH         LINE#         88
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 6
-
-
-  C:0D1BH         LINE#         89
-  C:0D1BH         LINE#         91
-  C:0D1BH         LINE#         92
-  C:0D1EH         LINE#         93
-  C:0D20H         LINE#         94
+  D:0007H         SYMBOL        dat
+  C:0D01H         LINE#         48
+  C:0D01H         LINE#         49
+  C:0D03H         LINE#         50
+  C:0D05H         LINE#         51
+  C:0D05H         LINE#         53
+  C:0D05H         LINE#         54
+  C:0D05H         LINE#         56
+  C:0D05H         LINE#         57
+  C:0D08H         LINE#         58
+  C:0D0AH         LINE#         59
   -------         ENDPROC       _LCDWRITEDATA
   -------         PROC          LCDINIT
-  C:0C9EH         LINE#         110
-  C:0C9EH         LINE#         111
-  C:0CA3H         LINE#         112
-  C:0CA8H         LINE#         113
-  C:0CADH         LINE#         114
-  C:0CB2H         LINE#         115
-  C:0CB7H         LINE#         116
+  C:0CA2H         LINE#         85
+  C:0CA2H         LINE#         86
+  C:0CA7H         LINE#         87
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 6
+
+
+  C:0CACH         LINE#         88
+  C:0CB1H         LINE#         89
+  C:0CB6H         LINE#         90
   -------         ENDPROC       LCDINIT
   -------         ENDMOD        LCD
 
@@ -329,15 +318,15 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   B:00A0H.0       PUBLIC        LED1
   B:00A0H.1       PUBLIC        LED2
   B:00A0H.2       PUBLIC        LED3
-  C:0D21H         PUBLIC        _delay
+  C:0CECH         PUBLIC        _delay
   D:0008H         PUBLIC        AlarmTriggered
   D:0009H         PUBLIC        SetPlace
   D:000AH         PUBLIC        AlarmSet
   C:0800H         PUBLIC        main
   D:000BH         PUBLIC        TempTime
   D:000EH         PUBLIC        SetState
-  C:0CFCH         PUBLIC        Delay10ms
-  C:0D2CH         PUBLIC        Int0Configuration
+  C:0CDFH         PUBLIC        Delay10ms
+  C:0D0BH         PUBLIC        Int0Configuration
   B:00A8H.0       PUBLIC        EX0
   B:0088H.0       PUBLIC        IT0
   D:000FH         PUBLIC        LEDState
@@ -349,19 +338,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   B:00B0H.2       PUBLIC        K3
   -------         PROC          _DELAY
   D:0006H         SYMBOL        j
-  C:0D21H         LINE#         29
-  C:0D21H         LINE#         30
-  C:0D21H         LINE#         31
-  C:0D2BH         LINE#         32
+  C:0CECH         LINE#         29
+  C:0CECH         LINE#         30
+  C:0CECH         LINE#         31
+  C:0CF6H         LINE#         32
   -------         ENDPROC       _DELAY
   -------         PROC          MAIN
   -------         DO            
   D:001EH         SYMBOL        i
   -------         ENDDO         
   C:0800H         LINE#         34
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 7
-
-
   C:0800H         LINE#         35
   C:0800H         LINE#         38
   C:0803H         LINE#         39
@@ -373,6 +359,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:080DH         LINE#         45
   C:0811H         LINE#         46
   C:0814H         LINE#         47
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 7
+
+
   C:0814H         LINE#         48
   C:0819H         LINE#         49
   C:081EH         LINE#         52
@@ -419,9 +408,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:08B3H         LINE#         99
   C:08B5H         LINE#         100
   C:08B7H         LINE#         101
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 8
-
-
   C:08B7H         LINE#         102
   C:08BCH         LINE#         103
   C:08BCH         LINE#         104
@@ -433,6 +419,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:08C5H         LINE#         111
   C:08C7H         LINE#         112
   C:08CEH         LINE#         113
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 8
+
+
   C:08D1H         LINE#         114
   C:08D1H         LINE#         116
   C:08DBH         LINE#         117
@@ -479,9 +468,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:0984H         LINE#         162
   C:0994H         LINE#         163
   C:0994H         LINE#         164
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 9
-
-
   C:0996H         LINE#         165
   C:0996H         LINE#         166
   C:09A6H         LINE#         167
@@ -493,6 +479,9 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:09B2H         LINE#         174
   C:09B2H         LINE#         175
   C:09B5H         LINE#         176
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 9
+
+
   C:09B7H         LINE#         177
   C:09B9H         LINE#         178
   C:09BCH         LINE#         179
@@ -539,9 +528,6 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:0A80H         LINE#         224
   C:0A85H         LINE#         225
   C:0A8AH         LINE#         226
-BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:00:05  PAGE 10
-
-
   C:0A8FH         LINE#         227
   C:0A9AH         LINE#         228
   C:0AA4H         LINE#         229
@@ -553,13 +539,16 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   C:0AD8H         LINE#         235
   C:0ADDH         LINE#         236
   -------         ENDPROC       LCDDISPLAY
+BL51 BANKED LINKER/LOCATER V6.22.4.0                                                  05/19/2024  13:29:51  PAGE 10
+
+
   -------         PROC          INT0CONFIGURATION
-  C:0D2CH         LINE#         239
-  C:0D2CH         LINE#         240
-  C:0D2CH         LINE#         242
-  C:0D2EH         LINE#         243
-  C:0D30H         LINE#         244
-  C:0D32H         LINE#         245
+  C:0D0BH         LINE#         239
+  C:0D0BH         LINE#         240
+  C:0D0BH         LINE#         242
+  C:0D0DH         LINE#         243
+  C:0D0FH         LINE#         244
+  C:0D11H         LINE#         245
   -------         ENDPROC       INT0CONFIGURATION
   -------         PROC          INT0
   C:0BBDH         LINE#         247
@@ -578,18 +567,18 @@ SYMBOL TABLE OF MODULE:  .\Objects\AlarmClock (DS1302)
   D:0006H         SYMBOL        b
   D:0007H         SYMBOL        c
   -------         ENDDO         
-  C:0CFCH         LINE#         258
-  C:0CFCH         LINE#         259
-  C:0CFCH         LINE#         261
-  C:0CFEH         LINE#         262
-  C:0D00H         LINE#         263
-  C:0D08H         LINE#         264
+  C:0CDFH         LINE#         258
+  C:0CDFH         LINE#         259
+  C:0CDFH         LINE#         261
+  C:0CE1H         LINE#         262
+  C:0CE3H         LINE#         263
+  C:0CEBH         LINE#         264
   -------         ENDPROC       DELAY10MS
   -------         ENDMOD        MAIN
 
 ******************************************************************************
-* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 04A9H BYTE (58%) *
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0488H BYTE (56%) *
 ******************************************************************************
 
-Program Size: data=32.0 xdata=0 code=1337
+Program Size: data=32.0 xdata=0 code=1304
 LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

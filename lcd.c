@@ -1,9 +1,5 @@
-#include "lcd.h"  // Include header file for LCD functions
+#include "lcd.h"
 
-// Function: Lcd1602_Delay1ms
-// Description: Creates a delay of approximately 1 millisecond.
-// Input: c (Number of times to repeat the delay loop)
-// Output: None
 void Lcd1602_Delay1ms(uint c) { 
     uchar a, b;   // Declare loop counters
     for (; c > 0; c--) {   // Outer loop: Repeat 'c' times
@@ -13,10 +9,6 @@ void Lcd1602_Delay1ms(uint c) {
     }
 }
 
-// Function: LcdWriteCom
-// Description: Writes a command byte to the LCD1602.
-// Input: com (The command byte to send)
-// Output: None
 #ifndef LCD1602_4PINS  // If NOT in 4-bit mode (i.e., 8-bit mode)
 void LcdWriteCom(uchar com) {
     LCD1602_E = 0;      // Pull enable (E) pin low
@@ -52,11 +44,6 @@ void LcdWriteCom(uchar com) {
 }
 #endif 
 
-
-// Function: LcdWriteData
-// Description: Writes a data byte to the LCD1602.
-// Input: dat (The data byte to send)
-// Output: None
 #ifndef LCD1602_4PINS  // If NOT in 4-bit mode (i.e., 8-bit mode)
 void LcdWriteData(uchar dat) { 
     LCD1602_E = 0;      // Pull E low
@@ -94,10 +81,6 @@ void LcdWriteData(uchar dat) {
 }
 #endif
 
-// Function: LcdInit
-// Description: Initializes the LCD1602.
-// Input: None
-// Output: None
 #ifndef LCD1602_4PINS  // If NOT in 4-bit mode (i.e., 8-bit mode)
 void LcdInit() {
     LcdWriteCom(0x38);  // Function Set: 8-bit, 2 lines, 5x8 font
